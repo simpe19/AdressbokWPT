@@ -8,12 +8,11 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace AdressbokWPTMvvm.MVVM.ViewModels
 {
     public partial class ContactsViewModel : ObservableObject
-    {
-        private readonly FileService fileService;
+    { 
         public ContactsViewModel()
         {
-            fileService = new FileService();
-            contacts = fileService.Contacts();
+            
+            contacts = ContactService.Contacts();
         }
 
         [ObservableProperty]

@@ -32,7 +32,7 @@ namespace AdressbokWPTMvvm.MVVM.Views
             var button = (Button)sender;
             var contact = (ContactModel)button.DataContext;
 
-            FileService.Remove(contact);
+            ContactService.Remove(contact);
         }
     }
 }

@@ -1,58 +1,32 @@
-﻿using AdressbokWPTMvvm.MVVM.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AdressbokWPTMvvm.Services
 {
     public class FileService
     {
-        private static ObservableCollection<ContactModel> contacts = new ObservableCollection<ContactModel>();
-        private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
-        
+        private string _filePath;
 
-
-        public FileService()
+        public FileService(string filePath)
         {
-            ReadFromFile();
+            _filePath = filePath;
         }
-
-        private void ReadFromFile()
+        public string ReadFromFile()
         {
-            try
+            if(File.Exists(_filePath))
             {
-                using var sr = new StreamReader(filePath);
-                contacts = JsonConvert.DeserializeObject<ObservableCollection<ContactModel>>(sr.ReadToEnd())!;
+                using var sr = new StreamReader(_filePath);
+                return sr.ReadToEnd();
             }
-            catch { contacts = new ObservableCollection<ContactModel>(); }
+            return string.Empty;
         }
 
-
-        private void Save()
+        public void Save(string content)
         {
-            using var sw = new StreamWriter(filePath);
-            sw.WriteLine(JsonConvert.SerializeObject(contacts));
-        }
-
-        public void Add(ContactModel contact)
-        {
-            contacts.Add(contact);
-            Save();
-        }
-
-        public static void Remove(ContactModel contact)
-        {
-            contacts.Remove(contact);
-            //Save();
-        }
-        public ObservableCollection<ContactModel> Contacts()
-        {
-            return contacts;
+            using var sw = new StreamWriter(_filePath);
+            sw.WriteLine(content);
         }
     }
+
 }

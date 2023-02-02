@@ -7,13 +7,6 @@ namespace AdressbokWPTMvvm.MVVM.ViewModels
 {
     public partial class AddContactViewModel : ObservableObject
     {
-        private readonly FileService fileService;
-        public AddContactViewModel()
-        {
-            fileService = new FileService();
-        }
-
-
 
         [ObservableProperty]
         private string title = "Add contact";
@@ -37,7 +30,7 @@ namespace AdressbokWPTMvvm.MVVM.ViewModels
 
         private void Add()
         {
-            fileService.Add(new ContactModel { FirstName = firstname, LastName = lastname, Email = email, Address = adress, Number = number });
+            ContactService.Add(new ContactModel { FirstName = firstname, LastName = lastname, Email = email, Address = adress, Number = number });
         }
 
     }
