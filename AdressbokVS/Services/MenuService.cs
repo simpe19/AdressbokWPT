@@ -40,7 +40,7 @@ internal class MenuService
     public void WelcomeMenu()
     {
         Console.Clear();
-        Console.WriteLine("ADRESSBOKEN");
+        Console.WriteLine("Contact book");
         Console.WriteLine("1. Create a new contact ");
         Console.WriteLine("2. Show all contacts ");
         Console.WriteLine("3. Show a specific contact ");
