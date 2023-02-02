@@ -16,6 +16,7 @@ namespace AdressbokWPTMvvm.Services
         private string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
         
 
+
         public FileService()
         {
             ReadFromFile();
@@ -44,10 +45,10 @@ namespace AdressbokWPTMvvm.Services
             Save();
         }
 
-        public  void Remove(ContactModel contact)
+        public static void Remove(ContactModel contact)
         {
             contacts.Remove(contact);
-            Save();
+            //Save();
         }
         public ObservableCollection<ContactModel> Contacts()
         {

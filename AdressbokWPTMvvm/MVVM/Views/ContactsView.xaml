@@ -37,16 +37,19 @@
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="right">
-                                <Button x:Name="btn_Edit" Content="Edit" Margin="5 0 5 0"/>
-                                <Button Command="{Binding RemoveCommand}"  Content="Remove"/>
+                                <Button x:Name="btn_Remove" Click="btn_Remove_Click" Content="Remove"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             
-            <StackPanel Grid.Column="1">
-                <TextBlock Text="{Binding SelectedContact.DisplayName}" />
+            <StackPanel Grid.Column="1" Margin=" 15">
+                <TextBlock Text="{Binding SelectedContact.DisplayName}" FontWeight="Bold" />
+                <TextBlock Text="{Binding SelectedContact.Email}" />
+                <TextBlock Text="{Binding SelectedContact.Address}" />
+                <TextBlock Text="{Binding SelectedContact.Number}" />
+                
             </StackPanel>
         </Grid>
             

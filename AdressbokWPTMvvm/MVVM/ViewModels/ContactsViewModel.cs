@@ -24,11 +24,5 @@ namespace AdressbokWPTMvvm.MVVM.ViewModels
 
         [ObservableProperty]
         private ContactModel selectedContact = null!;
-
-        [RelayCommand]
-        private void Remove()
-        {
-            fileService.Remove(SelectedContact);
-        }
     }
 }

@@ -26,5 +26,13 @@ namespace AdressbokWPTMvvm.MVVM.Views
         {
             InitializeComponent();
         }
+
+        private void btn_Remove_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var contact = (ContactModel)button.DataContext;
+
+            FileService.Remove(contact);
+        }
     }
 }
