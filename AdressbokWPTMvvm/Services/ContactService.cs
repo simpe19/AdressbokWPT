@@ -27,6 +27,7 @@ namespace AdressbokWPTMvvm.Services
         {
             contacts.Add(contact);
             fileservice.Save(JsonConvert.SerializeObject(contacts));
+            
         }
 
         public static void Remove(ContactModel contact)

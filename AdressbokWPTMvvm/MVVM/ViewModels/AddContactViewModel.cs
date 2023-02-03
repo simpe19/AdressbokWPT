@@ -12,25 +12,30 @@ namespace AdressbokWPTMvvm.MVVM.ViewModels
         private string title = "Add contact";
 
         [ObservableProperty]
-        private string firstname = string.Empty;
+        private string firstname;
 
         [ObservableProperty]
-        private string lastname = string.Empty;
+        private string lastname;
 
         [ObservableProperty]
-        private string email = string.Empty;
+        private string email;
 
         [ObservableProperty]
-        private string adress = string.Empty;
+        private string adress;
 
         [ObservableProperty]
-        private string number = string.Empty;
+        private string number;
 
         [RelayCommand]
 
         private void Add()
         {
-            ContactService.Add(new ContactModel { FirstName = firstname, LastName = lastname, Email = email, Address = adress, Number = number });
+            ContactService.Add(new ContactModel { FirstName = Firstname, LastName = lastname, Email = email, Address = adress, Number = number });
+            Firstname= string.Empty;
+            Lastname= string.Empty;
+            Email= string.Empty;
+            Adress= string.Empty;
+            Number= string.Empty;
         }
 
     }
