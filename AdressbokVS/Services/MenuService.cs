@@ -8,9 +8,9 @@ using System.Runtime.ExceptionServices;
 
 namespace AdressbokVS.Services;
 
-internal class MenuService
+public class MenuService
 {
-    public static List<Person> persons = new List<Person>();
+    public  List<Person> persons = new List<Person>();
     public static readonly FileService fileService = new FileService($@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\console.json");
 
     public void PersonService()
@@ -22,17 +22,17 @@ internal class MenuService
         catch { persons = new List<Person>(); }
     }
 
-    public void Add(Person person)
+    internal void Add(Person person)
     {
         persons.Add(person);
         fileService.Save(JsonConvert.SerializeObject(persons));
     }
-    public void Remove(Person person)
+    internal void Remove(Person person)
     {
         persons.Remove(person);
         fileService.Save(JsonConvert.SerializeObject(persons));
     }
-    public List<Person> Contacts()
+    internal  List<Person> Contacts()
     {
         return persons;
     }

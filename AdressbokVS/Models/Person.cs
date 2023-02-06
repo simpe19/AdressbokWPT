@@ -4,7 +4,7 @@ using AdressbokVS.Interfaces;
 
 namespace AdressbokVS.Models;
 
-internal class Person : IPerson
+public class Person : IPerson
 {
     public string FirstName { get; set; } = null!;
 
